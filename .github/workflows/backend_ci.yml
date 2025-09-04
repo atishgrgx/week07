@@ -1,4 +1,5 @@
 # week07/.github/workflows/backend_ci.yml
+# trigger: proving CI runs on push
 
 name: Backend CI - Test, Build and Push Images to ACR
 
@@ -126,7 +127,7 @@ jobs:
 
     # Login to Azure Container Registry (ACR)
     - name: Login to Azure Container Registry
-      run: az acr login --name ${{ env.ACR_LOGIN_SERVER }}
+      run: az acr login --name ${{ secrets.ACR_NAME }}
 
     # Build and Push Docker image for Product Service
     - name: Build and Push Product Service Image
